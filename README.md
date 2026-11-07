@@ -29,4 +29,6 @@ Then open <http://localhost:8000>. There are no build steps or package installs.
 
 Visit data and attachments are saved in this browser's local storage and stay on this device. Attachments are limited to 500 KB each to fit browser storage. The PWA currently caches the interface for offline loading; it does not sync or save edits made offline. The role selector previews the Super Admin, VP, and Sales views; it is not an authentication or server-side permission system. User invitations, password reset, shared storage, push notifications, and production security are not connected in this MVP.
 
+The initial Supabase schema and row-level access policies are prepared in `supabase/migrations/`; they have not been applied to a Supabase project or connected to the app yet. Setup notes are in `supabase/README.md`.
+
 Use sample or non-sensitive information here. The existing `AXIS_VISITS_SPECIFICATIONS.md` remains the full reference for the eventual production implementation.
