@@ -20,6 +20,8 @@ Then open <http://localhost:8000>. There are no build steps or package installs.
 - Guest management with attendance statuses and a Needs Review prompt when a guest cancels.
 - Flight, hotel, transportation, restaurant, and activity bookings.
 - Multiple flight segments and individual hotel stay dates per guest.
+- Hotel reservation fields for booking date/time, check-in/out, late checkout, and confirmation number, with a downloadable Excel request sheet for the hotel.
+- Event lead VPs, collaborating VPs, and sales reps are automatically added to the event guest list and removed from it when unassigned.
 - PDF and image attachments on bookings, with local download and removal.
 - Booking status and progress summaries, a persistent Needs Review counter, and per-visit activity history.
 - Sample workspace data and a reset action in Workspace Settings.
@@ -31,7 +33,7 @@ The app now uses Supabase Auth and the Supabase database for signed-in users. Vi
 
 Supabase Auth sessions persist on the device. An internet connection is required to load or save shared data; offline edits are not queued. Booking attachments are stored in a private bucket and limited to 500 KB each. The app asks users to enable browser notifications, shows the permission state in Workspace Settings, and can display a local test notification on the device. Remote push subscriptions and message delivery, plus invitation management inside the app, are still future work; users are currently invited from the Supabase Dashboard.
 
-The active Supabase project has the initial schema from supabase/migrations/20261107000000_initial_schema.sql. The first confirmed account has the SUPER_ADMIN role. At least one active VP account must also exist before the admin can create a visit, because every visit needs a VP lead.
+The active Supabase project has the initial schema from supabase/migrations/20261107000000_initial_schema.sql and the event-team guest link from supabase/migrations/20261107234200_event_team_guests.sql. The first confirmed account has the SUPER_ADMIN role. At least one active VP account must also exist before the admin can create a visit, because every visit needs a VP lead. Excel exports use the locally bundled SheetJS Community Edition 0.20.3; its license is in SHEETJS-LICENSE.txt.
 
 ## Supabase Auth URLs
 

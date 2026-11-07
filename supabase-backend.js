@@ -162,6 +162,7 @@
       var guests = (guestsByVisit[row.id] || []).map(function (guest) {
         return {
           id: guest.id,
+          profileId: guest.profile_id || null,
           firstName: guest.first_name,
           lastName: guest.last_name,
           email: guest.email,
@@ -339,6 +340,7 @@
         rows.guests.push({
           id: guest.id,
           visit_id: visit.id,
+          profile_id: guest.profileId || null,
           first_name: guest.firstName,
           last_name: guest.lastName,
           email: guest.email || '',
