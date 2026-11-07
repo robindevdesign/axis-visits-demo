@@ -1,11 +1,11 @@
-const CACHE_NAME = 'axis-visits-shell-v3';
+const CACHE_NAME = 'axis-visits-shell-v4';
 const APP_SHELL = [
   './',
   './index.html',
   './styles.css?v=14',
   './supabase-config.js?v=1',
   './supabase-backend.js?v=1',
-  './app.js?v=12',
+  './app.js?v=13',
   './manifest.webmanifest',
   './axis-logo-black.svg',
   './axis-visits-icon.svg',
@@ -30,6 +30,15 @@ self.addEventListener('activate', event => {
         .map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
+});
+
+self.addEventListener('notificationclick', event => {
+  const targetUrl = event.notification.data?.url || './';
+  event.notification.close();
+  event.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clients => {
+    const appClient = clients.find(client => 'focus' in client);
+    return appClient ? appClient.focus() : self.clients.openWindow(targetUrl);
+  }));
 });
 
 self.addEventListener('fetch', event => {

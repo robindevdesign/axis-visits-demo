@@ -24,4 +24,4 @@ The Site URL is the default destination for Auth email links. The PWA page must 
 
 - The project URL and publishable client key are used by the browser app. Row-level security protects the database.
 - Never add the database password, service-role key, VAPID private key, or push authentication secrets to the GitHub repository or browser code.
-- Auth, shared visit data, and private attachment storage are connected to the PWA. The PWA can request browser notification permission, but push subscriptions and message delivery still need to be connected. In-app invitations are not implemented yet.
+- Auth, shared visit data, and private attachment storage are connected to the PWA. The PWA can request browser notification permission and send a local test notification, but remote push subscriptions and message delivery still need to be connected. In-app invitations are not implemented yet.
