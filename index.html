@@ -14,10 +14,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
-  <div class="app-shell">
+  <div id="authGate" class="auth-gate" hidden aria-live="polite"></div>
+  <div class="app-shell" id="appShell" hidden>
     <aside class="sidebar" id="sidebarMenu">
       <div class="sidebar-head">
         <a class="brand" href="#" data-action="home" aria-label="Axis Visits home">
@@ -77,6 +78,9 @@
     </section>
   </div>
   <div class="toast-region" id="toastRegion" aria-live="polite"></div>
-  <script src="app.js?v=10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js?v=1"></script>
+  <script src="supabase-backend.js?v=1"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

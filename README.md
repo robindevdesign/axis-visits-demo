@@ -1,4 +1,4 @@
-# Axis Visits — local MVP
+# Axis Visits — PWA MVP
 
 A lightweight, responsive browser MVP for planning Axis Lighting customer visits. The interface is in English and uses the official Axis wordmark, charcoal, white, and lime accents, architectural lighting imagery, and editorial typography. The logo SVG is bundled locally as `axis-logo-black.svg`.
 
@@ -25,10 +25,16 @@ Then open <http://localhost:8000>. There are no build steps or package installs.
 - Sample workspace data and a reset action in Workspace Settings.
 - Installable PWA shell with an app icon and offline-cached interface files.
 
-## Local prototype boundaries
+## Shared workspace
 
-Visit data and attachments are saved in this browser's local storage and stay on this device. Attachments are limited to 500 KB each to fit browser storage. The PWA currently caches the interface for offline loading; it does not sync or save edits made offline. The role selector previews the Super Admin, VP, and Sales views; it is not an authentication or server-side permission system. User invitations, password reset, shared storage, push notifications, and production security are not connected in this MVP.
+The app now uses Supabase Auth and the Supabase database for signed-in users. Visits, guests, bookings, flight segments, hotel stays, activity, and booking attachments are shared across devices. Database access is protected by the project's row-level security policies. The publishable key in supabase-config.js is intended for browser use; never add a database password, secret/service-role key, or VAPID private key to the repository.
 
-The initial Supabase schema and row-level access policies are prepared in `supabase/migrations/`; they have not been applied to a Supabase project or connected to the app yet. Setup notes are in `supabase/README.md`.
+Supabase Auth sessions persist on the device. An internet connection is required to load or save shared data; offline edits are not queued. Booking attachments are stored in a private bucket and limited to 500 KB each. Push notification delivery and invitation management inside the app are still future work; users are currently invited from the Supabase Dashboard.
 
-Use sample or non-sensitive information here. The existing `AXIS_VISITS_SPECIFICATIONS.md` remains the full reference for the eventual production implementation.
+The active Supabase project has the initial schema from supabase/migrations/20261107000000_initial_schema.sql. The first confirmed account has the SUPER_ADMIN role. At least one active VP account must also exist before the admin can create a visit, because every visit needs a VP lead.
+
+## Supabase Auth URLs
+
+After publishing this version, open Authentication → URL Configuration in Supabase. Set the Site URL to https://robindevdesign.github.io/axis-visits-demo/, then add that same URL to Redirect URLs. For local email sign-in links, also allow http://localhost:8000/**. The current PWA page must be available at the redirect destination for password recovery and invitation links.
+
+The PWA shell may load offline, but shared data and authentication require a network connection. Setup notes are in supabase/README.md.
