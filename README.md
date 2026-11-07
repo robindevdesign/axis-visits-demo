@@ -29,7 +29,7 @@ Then open <http://localhost:8000>. There are no build steps or package installs.
 
 The app now uses Supabase Auth and the Supabase database for signed-in users. Visits, guests, bookings, flight segments, hotel stays, activity, and booking attachments are shared across devices. Database access is protected by the project's row-level security policies. The publishable key in supabase-config.js is intended for browser use; never add a database password, secret/service-role key, or VAPID private key to the repository.
 
-Supabase Auth sessions persist on the device. An internet connection is required to load or save shared data; offline edits are not queued. Booking attachments are stored in a private bucket and limited to 500 KB each. Push notification delivery and invitation management inside the app are still future work; users are currently invited from the Supabase Dashboard.
+Supabase Auth sessions persist on the device. An internet connection is required to load or save shared data; offline edits are not queued. Booking attachments are stored in a private bucket and limited to 500 KB each. The app now asks users to enable browser notifications and shows the permission state in Workspace Settings. Remote push subscriptions and message delivery, plus invitation management inside the app, are still future work; users are currently invited from the Supabase Dashboard.
 
 The active Supabase project has the initial schema from supabase/migrations/20261107000000_initial_schema.sql. The first confirmed account has the SUPER_ADMIN role. At least one active VP account must also exist before the admin can create a visit, because every visit needs a VP lead.
 
