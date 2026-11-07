@@ -240,4 +240,5 @@ document.addEventListener('input',e=>{if(e.target.id==='visitSearch'){page.searc
 document.getElementById('modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop')closeModal();});
 document.addEventListener('keydown',e=>{const card=e.target.closest?.('.mobile-visit-card[role="button"]');if(card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openVisit(card.dataset.openVisit);return;}if(e.key==='Escape'){closeModal();setMobileMenu(false);document.querySelector('.notification-popover')?.remove();}});
 window.addEventListener('resize',()=>{const isOpen=document.getElementById('sidebarMenu').classList.contains('is-open');if(window.innerWidth>720||!isOpen)setMobileMenu(false);});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(error=>console.error('Axis Visits offline support could not start.',error)));}
 setMobileMenu(false);updateNav();render();
