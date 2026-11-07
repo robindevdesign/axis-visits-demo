@@ -261,7 +261,7 @@ document.addEventListener('keydown',e=>{const card=e.target.closest?.('.mobile-v
 window.addEventListener('resize',()=>{const isOpen=document.getElementById('sidebarMenu').classList.contains('is-open');if(window.innerWidth>720||!isOpen)setMobileMenu(false);});
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(error=>console.error('Axis Visits offline support could not start.',error)));}
 function activateSupabaseApp(bundle){
- backendActive=true;currentProfile=bundle.profile;people=bundle.people;state=bundle.state;const teamSynced=state.visits.reduce((changed,visit)=>syncEventTeamGuests(visit)||changed,false);if(teamSynced)persist();
+ backendActive=true;currentProfile=bundle.profile;people=bundle.people;state=bundle.state;const teamSynced=state.visits.reduce((changed,visit)=>canEdit(visit)?syncEventTeamGuests(visit)||changed:changed,false);if(teamSynced)persist();
  const appShell=document.getElementById('appShell'),authGate=document.getElementById('authGate');
  appShell.hidden=false;authGate.hidden=true;
  document.querySelector('.role-switch').hidden=true;document.getElementById('roleSelect').disabled=true;
@@ -281,6 +281,6 @@ window.axisAppSetAttachmentPath=function(id,path,size){for(const visit of state.
 async function bootAxisVisits(){
  setMobileMenu(false);
  if(window.AxisSupabaseBackend){document.getElementById('appShell').hidden=true;const bundle=await window.AxisSupabaseBackend.start();if(bundle)activateSupabaseApp(bundle);return;}
- const teamSynced=state.visits.reduce((changed,visit)=>syncEventTeamGuests(visit)||changed,false);if(teamSynced)persist();document.getElementById('appShell').hidden=false;updateNav();render();
+ const teamSynced=state.visits.reduce((changed,visit)=>canEdit(visit)?syncEventTeamGuests(visit)||changed:changed,false);if(teamSynced)persist();document.getElementById('appShell').hidden=false;updateNav();render();
 }
 bootAxisVisits().catch(error=>{console.error('Axis Visits startup failed.',error);document.getElementById('authGate').hidden=false;document.getElementById('authGate').textContent='Could not connect to the shared workspace. Refresh and try again.';document.getElementById('appShell').hidden=true;});
