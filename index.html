@@ -8,16 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="#" data-action="home" aria-label="Axis Visits home">
-        <img class="brand-logo" src="axis-logo-black.svg" alt="Axis Lighting" />
-        <span class="brand-divider"></span>
-        <span class="brand-product">VISITS</span>
-      </a>
+    <aside class="sidebar" id="sidebarMenu">
+      <div class="sidebar-head">
+        <a class="brand" href="#" data-action="home" aria-label="Axis Visits home">
+          <img class="brand-logo" src="axis-logo-black.svg" alt="Axis Lighting" />
+          <span class="brand-divider"></span>
+          <span class="brand-product">VISITS</span>
+        </a>
+        <button class="sidebar-close" type="button" data-action="close-menu" aria-label="Close navigation">×</button>
+      </div>
 
       <div class="workspace-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="Main navigation">
@@ -43,9 +46,11 @@
         </div>
       </div>
     </aside>
+    <button class="mobile-nav-backdrop" type="button" data-action="close-menu" aria-label="Close navigation" hidden></button>
 
     <main class="main-area">
       <header class="topbar">
+        <button class="mobile-menu-button" id="mobileMenuButton" type="button" data-action="toggle-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebarMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
         <div class="breadcrumbs"><span>Axis Visits</span><span class="crumb-slash">/</span><strong id="breadcrumbCurrent">Overview</strong></div>
         <div class="topbar-actions">
           <label class="role-switch" title="Switch demo role"><span>View as</span><select id="roleSelect" aria-label="Switch demo role"><option value="SUPER_ADMIN">Monserrat</option><option value="VP">Lead VP</option><option value="SALES">Sales</option></select></label>
@@ -66,6 +71,6 @@
     </section>
   </div>
   <div class="toast-region" id="toastRegion" aria-live="polite"></div>
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>
