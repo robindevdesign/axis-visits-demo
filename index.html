@@ -21,11 +21,11 @@
 
       <div class="workspace-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="Main navigation">
-        <button class="nav-link active" data-action="home"><span class="nav-icon">⌂</span>Overview</button>
-        <button class="nav-link" data-action="home"><span class="nav-icon">▤</span>All visits <span class="nav-count" id="navVisitCount">—</span></button>
-        <button class="nav-link" data-action="needs-review"><span class="nav-icon review-icon">◉</span>Needs review <span class="nav-count alert-count" id="navReviewCount">—</span></button>
-        <button class="nav-link" data-action="archives"><span class="nav-icon">▣</span>Archived</button>
-        <button class="nav-link mobile-settings-link" data-action="settings"><span class="nav-icon">⚙</span>Settings</button>
+        <button class="nav-link active" data-action="home" data-nav-page="overview"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-link" data-action="all-visits" data-nav-page="all-visits"><span class="nav-icon">▤</span>All visits <span class="nav-count" id="navVisitCount">—</span></button>
+        <button class="nav-link" data-action="needs-review" data-nav-page="needs-review"><span class="nav-icon review-icon">◉</span>Needs review <span class="nav-count alert-count" id="navReviewCount">—</span></button>
+        <button class="nav-link" data-action="archives" data-nav-page="archives"><span class="nav-icon">▣</span>Archived</button>
+        <button class="nav-link mobile-settings-link" data-action="settings" data-nav-page="settings"><span class="nav-icon">⚙</span>Settings</button>
       </nav>
 
       <div class="sidebar-section-label">YOUR SPACE</div>
@@ -37,7 +37,7 @@
 
       <div class="sidebar-bottom">
         <div class="lighting-note"><span class="note-light"></span><div><b>Every visit, in sync.</b><small>People, plans and details<br>in one place.</small></div></div>
-        <button class="nav-link settings-link" data-action="settings"><span class="nav-icon">⚙</span>Workspace settings</button>
+        <button class="nav-link settings-link" data-action="settings" data-nav-page="settings"><span class="nav-icon">⚙</span>Workspace settings</button>
         <div class="profile-block">
           <div class="avatar avatar-monse">MJ</div><div class="profile-copy"><strong>Monserrat Jimenez</strong><span>Marketing · Super Admin</span></div><button class="profile-menu" aria-label="Profile menu">···</button>
         </div>
