@@ -1,11 +1,11 @@
-const CACHE_NAME = 'axis-visits-shell-v5';
+const CACHE_NAME = 'axis-visits-shell-v6';
 const APP_SHELL = [
   './',
   './index.html',
   './styles.css?v=15',
   './supabase-config.js?v=1',
   './supabase-backend.js?v=2',
-  './app.js?v=14',
+  './app.js?v=15',
   './xlsx.full.min.js',
   './manifest.webmanifest',
   './axis-logo-black.svg',
